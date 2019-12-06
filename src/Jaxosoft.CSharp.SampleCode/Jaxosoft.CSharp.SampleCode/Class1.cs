@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
+using Jaxosoft.CSharp.SampleCode.Formats;
 
 /*
 NOTES for .NET Core:
@@ -23,6 +24,14 @@ NOTES for .NET Core:
         System.ValueTuple
         System.IO.FileSystem
         Microsoft.Windows.Compatibility(WMI, System.Drawing[aka.GDI +], etc.)
+
+    Open the Package Management window in Visual Studio and paste the following, as required.
+        Install-Package System.Runtime
+        Install-Package System.Dynamic.Runtime
+        Install-Package System.ValueTuple
+        Install-Package System.Reflection
+        Install-Package System.IO.FileSystem
+        Install-Package System.Console
 */
 
 namespace Jaxosoft.CSharp.SampleCode
@@ -41,6 +50,8 @@ namespace Jaxosoft.CSharp.SampleCode
 
             Console.ReadLine();
             Console.WriteLine("Press ENTER to exit.");
+
+            return 0;
         }
     }
 }

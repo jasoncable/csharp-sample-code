@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jaxosoft.CSharp.SampleCode.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -100,7 +101,29 @@ namespace Jaxosoft.CSharp.SampleCode.Formats
 
         public static void PrintTable()
         {
+            CalculateToString(CultureSpecificFormats);
+            CalculateToString(NonCultureSpecificFormats);
+            CalculateToString(RawFormatCharacters);
 
+            Console.WriteLine("CultureSpecificFormats");
+            foreach (var line in StringFixedWidthPrinter.MakeFixedWidthStrings(CultureSpecificFormats))
+                Console.WriteLine(line);
+
+            Console.WriteLine("NonCultureSpecificFormats");
+            foreach (var line in StringFixedWidthPrinter.MakeFixedWidthStrings(NonCultureSpecificFormats))
+                Console.WriteLine(line);
+
+            Console.WriteLine("RawFormatCharacters");
+            foreach (var line in StringFixedWidthPrinter.MakeFixedWidthStrings(RawFormatCharacters))
+                Console.WriteLine(line);
+        }
+
+        private static void CalculateToString(List<List<string>> data)
+        {
+            var now = DateTime.Now;
+
+            foreach (var list in data)
+                list[2] = now.ToString(list[0]);
         }
     }
 }
