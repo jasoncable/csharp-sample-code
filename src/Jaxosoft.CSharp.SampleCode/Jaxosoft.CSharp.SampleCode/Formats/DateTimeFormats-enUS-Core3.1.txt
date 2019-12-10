@@ -1,0 +1,84 @@
+﻿CultureSpecificFormats
+= ====================================== ======================================
+d short date                             12/10/2019
+D long date                              Tuesday, December 10, 2019
+f full date (long date + short time)     Tuesday, December 10, 2019 10:18 AM
+F full date (long date + long time)      Tuesday, December 10, 2019 10:18:28 AM
+g general date (short date + short time) 12/10/2019 10:18 AM
+G general date (short date + long time)  12/10/2019 10:18:28 AM
+m Month/Day date                         December 10
+M Month/Day date                         December 10
+t short time                             10:18 AM
+T long time                              10:18:28 AM
+U UTC full (long date + long time)       Tuesday, December 10, 2019 3:18:28 PM
+y Year/Month day                         December 2019
+Y Year/Month day                         December 2019
+
+NonCultureSpecificFormats
+= ======================= =================================
+o Round Trip XML          2019-12-10T10:18:28.9092906-05:00
+O Round Trip XML          2019-12-10T10:18:28.9092906-05:00
+r RFC 1123 date           Tue, 10 Dec 2019 10:18:28 GMT
+R RFC 1123 date           Tue, 10 Dec 2019 10:18:28 GMT
+s ISO 8601 (sortable)     2019-12-10T10:18:28
+u ISO 8601 UTC (sortable) 2019-12-10 10:18:28Z
+
+RawFormatCharacters
+========== ============================================= ======================================
+h          hour (12-hour clock)w/o leading zero
+hh         hour (12-hour clock)with leading zero         10
+hh*        hour (12-hour clock)with leading zero         10*
+H          hour (24-hour clock)w/o leading zero
+HH         hour (24-hour clock)with leading zero         10
+HH*        hour (24-hour clock)                          10*
+m          minute w/o leading zero                       December 10
+mm         minute with leading zero                      18
+mm*        minute with leading zero                      18*
+s          second w/o leading zero                       2019-12-10T10:18:28
+ss         second with leading zero                      28
+ss*        second with leading zero                      28*
+f          second fraction (1 digit)                     Tuesday, December 10, 2019 10:18 AM
+ff         second fraction (2 digit)                     90
+fff        second fraction (3 digit)                     909
+ffff       second fraction (4 digit)                     9093
+fffff      second fraction (5 digit)                     90936
+ffffff     second fraction (6 digit)                     909365
+fffffff    second fraction (7 digit)                     9093655
+F          second fraction (up to 1 digit)               Tuesday, December 10, 2019 10:18:28 AM
+FF         second fraction (up to 2 digit)               9
+FFF        second fraction (up to 3 digit)               909
+FFFF       second fraction (up to 4 digit)               9093
+FFFFF      second fraction (up to 5 digit)               90936
+FFFFFF     second fraction (up to 6 digit)               909365
+FFFFFFF    second fraction (up to 7 digit)               9093655
+t          first character of AM/PM designator           10:18 AM
+tt         AM/PM designator                              AM
+tt*        AM/PM designator                              AM*
+d          day w/o leading zero                          12/10/2019
+dd         day with leading zero                         10
+ddd        short weekday name (abbreviation)             Tue
+dddd       full weekday name                             Tuesday
+dddd*      full weekday name                             Tuesday*
+M          month w/o leading zero                        December 10
+MM         month with leading zero                       12
+MMM        short month name (abbreviation)               Dec
+MMMM       full month name                               December
+MMMM*      full month name                               December*
+y          two digit year (year % 100) w/o leading zero  December 2019
+yy         two digit year (year % 100) with leading zero 19
+yyy        year                                          2019
+yyyy       year                                          2019
+yyyyy      year                                          02019
+z          timezone offset w/o leading zero
+zz         timezone offset with leading zero             -05
+zzz        full timezone offset                          -05:00
+zzz*       full timezone offset                          -05:00*
+K          ???
+g*         the current era name                          A.D.*
+00:00:00   time separator                                00:00:00
+dd/mm/yyyy date separator                                10/18/2019
+yyyy-mm-dd date separator                                2019-18-10
+'ABC'      quoted string                                 ABC
+"ABC"      quoted string                                 ABC
+%yyyy      used to quote a single pattern characters     192019
+\d         escaped character                             d

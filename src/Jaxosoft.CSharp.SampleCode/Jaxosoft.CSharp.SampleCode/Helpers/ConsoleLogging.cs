@@ -40,7 +40,9 @@ namespace Jaxosoft.CSharp.SampleCode.Helpers
 
             try
             {
-                action.Invoke();
+                // as Action returns void, you cannot await its completion like
+                // you can a Func.  To do so, you must do the following...
+                await Task.Run(action);
             }
             catch (Exception exc)
             {

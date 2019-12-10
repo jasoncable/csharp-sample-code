@@ -23,31 +23,35 @@ namespace Jaxosoft.CSharp.SampleCode.Helpers
             }
 
             // header row
+            StringBuilder sb = new StringBuilder();
             foreach (var width in widths)
             {
-                StringBuilder sb = new StringBuilder();
                 sb.Append(String.Empty.PadRight(width, '='));
                 sb.Append(' ');
-                output.Add(sb.ToString());
             }
+            output.Add(sb.ToString());
 
             foreach (var stringList in strings)
             {
-                foreach(var width in widths)
+                StringBuilder sb1 = new StringBuilder();
+                for (int i = 0; i < widths.Count; i++)
                 {
-                    for(int i = 0; i < stringList.Count; i++)
+                    var width = widths[i];
+                    if (stringList.Count >= i)
                     {
-                        StringBuilder sb = new StringBuilder();
-
                         if (String.IsNullOrEmpty(stringList[i]))
-                            sb.Append(String.Empty.PadRight(width + 1, ' '));
+                            sb1.Append(String.Empty.PadRight(width + 1, ' '));
                         else
-                            sb.Append(stringList[i].PadRight(width + 1, ' '));
-
-                        output.Add(sb.ToString());
+                            sb1.Append(stringList[i].PadRight(width + 1, ' '));
+                    }
+                    else
+                    {
+                        sb1.Append(String.Empty.PadRight(width + 1, ' '));
                     }
                 }
+                output.Add(sb1.ToString());
             }
+            output.Add(String.Empty);
             return output;
         }
     }

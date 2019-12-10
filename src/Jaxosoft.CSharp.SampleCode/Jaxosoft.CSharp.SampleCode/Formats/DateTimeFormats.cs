@@ -123,7 +123,13 @@ namespace Jaxosoft.CSharp.SampleCode.Formats
             var now = DateTime.Now;
 
             foreach (var list in data)
-                list[2] = now.ToString(list[0]);
+            {
+                try
+                {
+                    list[2] = now.ToString(list[0]);
+                }
+                catch { }
+            }
         }
     }
 }
