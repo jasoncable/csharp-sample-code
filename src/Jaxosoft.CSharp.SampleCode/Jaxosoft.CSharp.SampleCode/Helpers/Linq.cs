@@ -91,4 +91,42 @@ namespace Jaxosoft.CSharp.SampleCode.Helpers
         public string Name { get; set; }
         public string Payload { get; set; }
     }
+
+    // C# 5 version...
+    // the C# 7.0+ version uses ValueTuple
+    public class EnumerableComparer<L, R>
+    {
+        public EnumerableComparerResult GetChanges(IEnumerable<L> models, IEnumerable<R> dos, Func<L, R, bool> comparer)
+        {
+            EnumerableComparerResult result = new EnumerableComparerResult();
+
+            if (models == null)
+                result.ItemsToAdd = new List<L>();
+            else if (dos == null)
+                result.ItemsToAdd = models;
+            else
+                result.ItemsToAdd = models.Where(x => !dos.Any(y => comparer(x, y))).ToList();
+
+            if (models == null || dos == null)
+                result.ItemsToUpdate = new List<R>();
+            else
+                result.ItemsToUpdate = dos.Where(x => models.Any(y => comparer(y, x))).ToList();
+
+            if (models == null)
+                result.ItemsToDelete = dos;
+            else if (dos == null)
+                result.ItemsToDelete = new List<R>();
+            else
+                result.ItemsToDelete = dos.Where(x => !models.Any(y => comparer(y, x))).ToList();
+
+            return result;
+        }
+
+        public class EnumerableComparerResult
+        {
+            public IEnumerable<L> ItemsToAdd { get; set; }
+            public IEnumerable<R> ItemsToUpdate { get; set; }
+            public IEnumerable<R> ItemsToDelete { get; set; }
+        }
+    }
 }
